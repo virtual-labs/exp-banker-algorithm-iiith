@@ -1,1 +1,1 @@
-## Experiment name
+## Banker's Algorithm
