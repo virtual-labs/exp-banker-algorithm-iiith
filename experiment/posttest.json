@@ -1,39 +1,178 @@
 {
   "version": 2.0,
   "questions": [
-    {
-      "question": "This is a Sample Question 1?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+
+      {
+        "question": "How does Banker’s Algorithm determine if a resource request is safe?",
+        "answers": {
+          "a": "It randomly grants resources",
+          "b": "It checks if granting the request keeps the system in a safe state",
+          "c": "It grants resources only to the highest-priority process",
+          "d": "It denies all requests unless all resources are free"
+        },
+        "explanations": {
+          "a": "Randomly granting resources can lead to unsafe states and potential deadlocks.",
+          "b": "The algorithm simulates granting the request and verifies if the system remains in a safe state before actual allocation.",
+          "c": "Banker’s Algorithm does not prioritize requests based on process priority; it checks system safety instead.",
+          "d": "Denying all requests until all resources are free is inefficient and not how Banker’s Algorithm functions."
+        },
+        "correctAnswer": "b",
+        "difficulty": "beginner"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      {
+        "question": "What does the 'Need matrix' represent?",
+        "answers": {
+          "a": "The maximum resources a process might need minus allocated resources",
+          "b": "The total available resources in the system",
+          "c": "The current resource allocation",
+          "d": "The remaining CPU burst time"
+        },
+        "explanations": {
+          "a": "The Need matrix is calculated as Need = Max Demand - Allocated Resources, showing how many more resources a process may request.",
+          "b": "The total available resources are stored separately in the 'Available' matrix, not the 'Need' matrix.",
+          "c": "The Allocation matrix keeps track of the resources currently assigned to processes, not their remaining needs.",
+          "d": "CPU burst time is related to scheduling, not Banker’s Algorithm."
+        },
+        "correctAnswer": "a",
+        "difficulty": "beginner"
       },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 2?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+      {
+        "question": "What must be true for a system to be in a safe state?",
+        "answers": {
+          "a": "All processes have received their maximum resources",
+          "b": "There exists at least one sequence in which all processes can complete",
+          "c": "No process is waiting for resources",
+          "d": "The system has no running processes"
+        },
+        "explanations": {
+          "a": "A system can be in a safe state even if not all processes have received their maximum resources.",
+          "b": "A safe state means at least one sequence exists where all processes can complete without deadlock.",
+          "c": "A process can still be waiting for resources in a safe state as long as deadlock is avoidable.",
+          "d": "The system can be running processes while maintaining a safe state."
+        },
+        "correctAnswer": "b",
+        "difficulty": "intermediate"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      {
+        "question": "If a system is in an unsafe state, what does that imply?",
+        "answers": {
+          "a": "A deadlock is certain to occur",
+          "b": "The system will never recover",
+          "c": "A deadlock may occur",
+          "d": "The system must shut down"
+        },
+        "explanations": {
+          "a": "An unsafe state does not guarantee deadlock but increases its risk.",
+          "b": "Recovery depends on future resource allocations and system behavior.",
+          "c": "An unsafe state means there is no guaranteed way to avoid deadlock, but it is not certain to occur.",
+          "d": "An unsafe state does not require a system shutdown."
+        },
+        "correctAnswer": "c",
+        "difficulty": "intermediate"
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    }
+      {
+        "question": "Which data structure is essential for Banker’s Algorithm?",
+        "answers": {
+          "a": "Stack",
+          "b": "Queue",
+          "c": "Matrices",
+          "d": "Linked List"
+        },
+        "explanations": {
+          "a": "Stacks are used for function calls and recursion, not resource allocation tracking.",
+          "b": "Queues are used in scheduling, but Banker’s Algorithm primarily relies on matrices.",
+          "c": "Banker’s Algorithm relies on matrices to store resource allocation, availability, and process needs.",
+          "d": "Linked lists are not used for storing resource allocation data in Banker’s Algorithm."
+        },
+        "correctAnswer": "c",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "Which situation can lead to starvation in Banker’s Algorithm?",
+        "answers": {
+          "a": "A process constantly requesting more resources than available",
+          "b": "The system having an infinite number of resources",
+          "c": "The system being in a safe state",
+          "d": "All processes running at the same time"
+        },
+        "explanations": {
+          "a": "A process that constantly requests more resources than available may never get executed, leading to starvation.",
+          "b": "If the system had infinite resources, starvation would not occur.",
+          "c": "A safe state does not guarantee resource allocation fairness; starvation depends on request patterns.",
+          "d": "All processes running simultaneously does not necessarily cause starvation."
+        },
+        "correctAnswer": "a",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "How can Banker’s Algorithm be modified to handle multiple resource types?",
+        "answers": {
+          "a": "By maintaining separate allocation and need matrices for each resource type",
+          "b": "By allowing only one type of resource",
+          "c": "By increasing system memory",
+          "d": "By preventing new processes from starting"
+        },
+        "explanations": {
+          "a": "The algorithm maintains separate matrices for each resource type, allowing it to handle multiple types efficiently.",
+          "b": "Restricting to one resource type makes the algorithm less practical for real-world scenarios.",
+          "c": "Increasing system memory does not directly impact Banker’s Algorithm.",
+          "d": "Preventing new processes from starting is not an appropriate modification."
+        },
+        "correctAnswer": "a",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "What is the worst-case time complexity of Banker’s Algorithm?",
+        "answers": {
+          "a": "O(1)",
+          "b": "O(N²M)",
+          "c": "O(N!)",
+          "d": "O(log N)"
+        },
+        "explanations": {
+          "a": "O(1) implies constant time complexity, which is not the case for Banker’s Algorithm.",
+          "b": "Banker’s Algorithm has a worst-case complexity of O(N²M), where N is the number of processes and M is the number of resource types.",
+          "c": "O(N!) is an impractically large complexity and does not apply to Banker’s Algorithm.",
+          "d": "O(log N) is more common in tree-based algorithms but not in Banker’s Algorithm."
+        },
+        "correctAnswer": "b",
+        "difficulty": "advanced"
+      },
+      {
+        "question": "Which scheduling strategy complements Banker’s Algorithm?",
+        "answers": {
+          "a": "First-Come, First-Served (FCFS)",
+          "b": "Shortest Job Next (SJN)",
+          "c": "Priority Scheduling",
+          "d": "Round Robin"
+        },
+        "explanations": {
+          "a": "FCFS does not consider resource allocation constraints, making it less compatible.",
+          "b": "SJN focuses on minimizing execution time, not resource allocation safety.",
+          "c": "Priority Scheduling complements Banker’s Algorithm by ensuring higher-priority processes receive resources first while avoiding deadlock.",
+          "d": "Round Robin focuses on time-sharing, which does not align with Banker’s Algorithm."
+        },
+        "correctAnswer": "c",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "If a process requests resources but the system remains in a safe state, what happens?",
+        "answers": {
+          "a": "The request is granted",
+          "b": "The request is denied",
+          "c": "The process is terminated",
+          "d": "The system enters deadlock"
+        },
+        "explanations": {
+          "a": "If the request does not lead to an unsafe state, the system grants the resources to the process.",
+          "b": "The request is only denied if granting it results in an unsafe state.",
+          "c": "A process is not terminated simply for requesting resources.",
+          "d": "Deadlock occurs only when there is a circular wait and no available resources."
+        },
+        "correctAnswer": "a",
+        "difficulty": "beginner"
+      }
+        
+    
   ]
 }

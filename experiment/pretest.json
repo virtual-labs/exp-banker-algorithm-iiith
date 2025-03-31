@@ -1,39 +1,176 @@
 {
   "version": 2.0,
   "questions": [
-    {
-      "question": "This is a Sample Question 1?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+      {
+        "question": "What is the primary purpose of Banker’s Algorithm?",
+        "answers": {
+          "a": "Memory allocation",
+          "b": "Deadlock avoidance in resource allocation",
+          "c": "Process scheduling",
+          "d": "Page replacement"
+        },
+        "explanations": {
+          "a": "Banker’s Algorithm does not deal with memory allocation; it focuses on resource management.",
+          "b": "Correct. The algorithm ensures safe resource allocation to prevent deadlocks.",
+          "c": "Process scheduling determines execution order, whereas Banker’s Algorithm manages resource allocation.",
+          "d": "Page replacement algorithms handle memory swapping, not deadlock prevention."
+        },
+        "correctAnswer": "b",
+        "difficulty": "beginner"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      {
+        "question": "Who developed Banker’s Algorithm?",
+        "answers": {
+          "a": "Alan Turing",
+          "b": "Edsger Dijkstra",
+          "c": "Donald Knuth",
+          "d": "John von Neumann"
+        },
+        "explanations": {
+          "a": "Alan Turing contributed to computing theory but did not develop Banker’s Algorithm.",
+          "b": "Correct. Edsger Dijkstra created Banker’s Algorithm for deadlock avoidance.",
+          "c": "Donald Knuth is known for algorithms and data structures but not Banker’s Algorithm.",
+          "d": "John von Neumann contributed to computer architecture, but not this algorithm."
+        },
+        "correctAnswer": "b",
+        "difficulty": "beginner"
       },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 2?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+      {
+        "question": "What type of algorithm is Banker’s Algorithm?",
+        "answers": {
+          "a": "Deadlock avoidance algorithm",
+          "b": "Deadlock detection algorithm",
+          "c": "Memory management algorithm",
+          "d": "CPU scheduling algorithm"
+        },
+        "explanations": {
+          "a": "Correct. Banker’s Algorithm prevents deadlocks by analyzing resource requests before granting them.",
+          "b": "Detection algorithms identify deadlocks after they occur, unlike Banker’s Algorithm.",
+          "c": "Banker’s Algorithm deals with process resource allocation, not memory management.",
+          "d": "It does not schedule CPU execution but rather manages resource allocation."
+        },
+        "correctAnswer": "a",
+        "difficulty": "beginner"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      {
+        "question": "What does the term 'safe state' mean in Banker’s Algorithm?",
+        "answers": {
+          "a": "A state where processes will always enter deadlock",
+          "b": "A state where at least one sequence of process execution avoids deadlock",
+          "c": "A state where all processes run simultaneously",
+          "d": "A state where no resources are allocated"
+        },
+        "explanations": {
+          "a": "Incorrect. A safe state ensures deadlock does not occur.",
+          "b": "Correct. A safe state guarantees that all processes can finish execution without deadlock.",
+          "c": "Simultaneous execution is not required for a safe state.",
+          "d": "Resource allocation is still allowed in a safe state."
+        },
+        "correctAnswer": "b",
+        "difficulty": "intermediate"
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    }
+      {
+        "question": "What is required to implement Banker’s Algorithm?",
+        "answers": {
+          "a": "Priority scheduling",
+          "b": "A known maximum resource demand for each process",
+          "c": "A real-time operating system",
+          "d": "A multiprocessor system"
+        },
+        "explanations": {
+          "a": "Priority scheduling determines process execution order but is unrelated to deadlock prevention.",
+          "b": "Correct. The algorithm requires processes to declare their maximum resource needs in advance.",
+          "c": "Real-time systems prioritize fast execution but do not necessarily use Banker’s Algorithm.",
+          "d": "The algorithm works in both single and multiprocessor environments."
+        },
+        "correctAnswer": "b",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "Which of the following is NOT a component of Banker’s Algorithm?",
+        "answers": {
+          "a": "Allocation matrix",
+          "b": "Need matrix",
+          "c": "Available resources matrix",
+          "d": "Cache memory"
+        },
+        "explanations": {
+          "a": "The Allocation matrix tracks currently assigned resources.",
+          "b": "The Need matrix determines the additional resources required for each process to complete execution.",
+          "c": "The Available matrix records currently available resources in the system.",
+          "d": "Correct. Cache memory is related to CPU performance, not resource allocation."
+        },
+        "correctAnswer": "d",
+        "difficulty": "beginner"
+      },
+      {
+        "question": "What happens if a process requests resources exceeding its declared maximum need?",
+        "answers": {
+          "a": "The request is granted",
+          "b": "The process is terminated",
+          "c": "The request is denied",
+          "d": "The system goes into deadlock"
+        },
+        "explanations": {
+          "a": "Incorrect. The algorithm does not allow exceeding the maximum declared need.",
+          "b": "Processes are not terminated but simply denied excess resource requests.",
+          "c": "Correct. Banker’s Algorithm denies requests exceeding the maximum declared need.",
+          "d": "Deadlock does not occur because the request is denied."
+        },
+        "correctAnswer": "c",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "What happens if there are not enough available resources to fulfill a request?",
+        "answers": {
+          "a": "The process is allocated whatever is available",
+          "b": "The request is placed on hold until resources are available",
+          "c": "The process is terminated",
+          "d": "The system enters a deadlock"
+        },
+        "explanations": {
+          "a": "Incorrect. Partial allocations could lead to deadlock.",
+          "b": "Correct. The process waits until enough resources are available.",
+          "c": "Termination is not necessary; the process simply waits.",
+          "d": "Deadlock does not occur because requests are only granted in a safe state."
+        },
+        "correctAnswer": "b",
+        "difficulty": "intermediate"
+      },
+      {
+        "question": "In which scenario is Banker’s Algorithm most useful?",
+        "answers": {
+          "a": "Single-user systems",
+          "b": "Multi-user, multi-process systems with dynamic resource allocation",
+          "c": "Real-time systems",
+          "d": "Systems with fixed resource allocation"
+        },
+        "explanations": {
+          "a": "Single-user systems rarely experience resource contention.",
+          "b": "Correct. Banker’s Algorithm is designed for environments with multiple competing processes.",
+          "c": "Real-time systems prioritize fast execution over deadlock avoidance.",
+          "d": "If resource allocation is fixed, there’s no need for dynamic allocation checks."
+        },
+        "correctAnswer": "b",
+        "difficulty": "advanced"
+      },
+      {
+        "question": "What is the biggest limitation of Banker’s Algorithm?",
+        "answers": {
+          "a": "It does not prevent deadlocks",
+          "b": "It requires knowledge of maximum resource needs in advance",
+          "c": "It cannot allocate resources dynamically",
+          "d": "It requires infinite resources"
+        },
+        "explanations": {
+          "a": "Incorrect. Banker’s Algorithm specifically prevents deadlocks.",
+          "b": "Correct. Processes must declare their maximum needs beforehand, which may be impractical.",
+          "c": "Banker’s Algorithm does allow dynamic resource requests but within declared limits.",
+          "d": "The algorithm is designed to work with limited resources."
+        },
+        "correctAnswer": "b",
+        "difficulty": "advanced"
+      }
+    
   ]
 }
