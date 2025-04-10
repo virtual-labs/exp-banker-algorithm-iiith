@@ -1,10 +1,3 @@
-# Introduction
-The Banker's Algorithm is a resource allocation and deadlock avoidance algorithm developed by Edsger Dijkstra. It is used to manage the allocation of limited resources among multiple competing processes while ensuring that the system remains in a safe state and does not enter a deadlock. The algorithm operates similarly to how a banker manages loans—by ensuring that resources are allocated only if the system can remain in a stable state after the allocation.
-
-In operating systems, the Banker's Algorithm helps prevent deadlock by carefully analyzing resource availability, process demands, and future system states. A virtual lab simulation of the Banker's Algorithm allows students to visualize how resource allocation works under constrained conditions and how deadlock can be avoided through controlled resource allocation.
-
----
-
 ## 1. Understanding the Key Elements of the Problem
 
 ### 1.1 Processes
@@ -164,35 +157,3 @@ In the **Banker's Algorithm**:
 - Ensures that **no process can hold a resource indefinitely**.
 
 ---
-
-## 6. How We Solve the Problem Using Banker's Algorithm
-
-✅ **Step 1: Request Handling**
-- A process **requests resources**.
-- The system evaluates whether the request **can be granted** without causing an **unsafe state**.
-
-✅ **Step 2: Safe State Evaluation**
-- The system calculates the **new state** after granting the request.
-- If the system remains in a **safe state**, the request is **granted**.
-- If the system becomes **unsafe**, the request is **denied**.
-
-✅ **Step 3: Allocation and Execution**
-- If granted, **resources are allocated**.
-- The process **executes and releases resources** upon completion.
-
-### **Code Example:**
-```cpp
-if (Request <= Available) {  
-    if (Request <= Need) {  
-        Allocate resources;  
-        if (state remains safe) {  
-            grant request;  
-        } else {  
-            deny request;  
-        }  
-    }  
-}
-```
-
-## 7. Conclusion
-The **Banker's Algorithm** ensures **safe and efficient resource allocation** by calculating the **future state** of the system before granting a request. It **prevents deadlock**, **guarantees progress**, and **ensures fair access** to resources, making it an **essential algorithm** for modern operating systems.
